@@ -1,5 +1,4 @@
 import type { NormalizedRow, ParseWarning, ParsedRow } from "../domain/types.js";
-import type { TransactionType } from "../domain/transaction.js";
 import { getFieldValue } from "./row.validator.js";
 
 export type NormalizeResult =
@@ -43,7 +42,7 @@ export function normalizeRow(
     return normalizeFailure(row, rowIndex, "Amount is zero");
   }
 
-  const type: TransactionType = parsedAmount > 0 ? "credit" : "debit";
+  const type: NormalizedRow["type"] = parsedAmount > 0 ? "credit" : "debit";
   const amount = Math.abs(parsedAmount);
   const currency = normalizeCurrency(getFieldValue(row, "currency"));
   const balanceRaw = getFieldValue(row, "balance_after");

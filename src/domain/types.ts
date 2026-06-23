@@ -1,15 +1,16 @@
+import type { ParseWarning } from "./parse-warning.js";
+import type { StressIndicator } from "./stress-indicator.js";
 import type { Transaction } from "./transaction.js";
 
 export type { Money } from "./money.js";
-export type { Transaction, TransactionType } from "./transaction.js";
+export type { Transaction } from "./transaction.js";
+export type { ParseWarning } from "./parse-warning.js";
+export type {
+  StressIndicator,
+  StressIndicatorSeverity,
+} from "./stress-indicator.js";
 
 export type ParsedRow = Record<string, string>;
-
-export type ParseWarning = {
-  rowIndex: number;
-  reason: string;
-  rawRow: Record<string, string>;
-};
 
 export type NormalizedRow = {
   date: Date;
@@ -31,13 +32,6 @@ export type MonthlyTimelineEntry = {
   outflows: number;
   net_flow: number;
   end_of_month_balance: number;
-};
-
-export type StressIndicator = {
-  type: string;
-  severity: "low" | "medium" | "high";
-  occurrences: number;
-  message: string;
 };
 
 export type ForwardViewLabel =
