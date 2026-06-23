@@ -1,6 +1,7 @@
-import { Transaction } from "./transaction.js";
+import type { Transaction } from "./transaction.js";
 
 export type { Money } from "./money.js";
+export type { Transaction, TransactionType } from "./transaction.js";
 
 export type ParsedRow = Record<string, string>;
 
